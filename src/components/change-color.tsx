@@ -1,5 +1,6 @@
 import './change-color.css'
-import { useRef } from 'react'
+// import { useRef } from 'react'
+
 
 const getRandomColor = () => {
   const letters = '0123456789ABCDEF'
@@ -11,18 +12,34 @@ const getRandomColor = () => {
 }
 
 const ChangeColor = () => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-
-  const handleClick = () => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const randomColor = getRandomColor()
-    if (buttonRef.current) {
-      buttonRef.current.style.backgroundColor = randomColor
-    }
+    const button = event.currentTarget
+    button.style.backgroundColor = randomColor
   }
 
   return (
     <div>
-      <button className='btn' ref={buttonRef} onClick={handleClick}>click me</button>
+        <div>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+        </div>
+
+        <div>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+        </div>
+
+        <div>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+            <button className='btn' onClick={handleClick}>click me</button>
+        </div>
     </div>
   )
 }
